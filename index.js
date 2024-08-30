@@ -1,12 +1,9 @@
-const jsonfile = require('jsonfile');
+@echo off
+rem Run the first command in the first terminal
+start cmd /k "ngrok config add-authtoken 2Itaz2ZYiBkGiO2XRTCEo0JAect_3kxzvcFpBToo5RFdZ8Cjo && ngrok http --domain=factual-destined-foxhound.ngrok-free.app 5000"
 
-const moment = require('moment');
-const FILE_PATH = './data.json';
+rem Wait for 1 second before starting the second terminal
+timeout /t 5 >nul
 
-const DATE = moment().format();
-
-const data = {
-    date: DATE
-}   
-
-jsonfile.writeFile(FILE_PATH, data);
+rem Run the second command in the second terminal
+start cmd /k "ngrok config add-authtoken 2lN8mjCUZrrMNPCyZ2JwUJ1NzjH_6SyzYmPWgANFo8VBACTjw && ngrok http --domain=delicate-happy-cub.ngrok-free.app 8000"
